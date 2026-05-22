@@ -1,16 +1,14 @@
 package Recursion;
 
 public class SumOfNNaturalNumbers {
-    public static int findSum(int n,int sum){
+    public static int findSum(int n){
         if(n==0){
-            return sum;
+            return 0;
         }
-        sum+=n;
-        return findSum(n-1,sum);
+        return findSum(n-1)+n;
     }
     public static void main(String[] args) {
-        int sum=0;
         int n=3;
-        System.out.println(findSum(n,sum));
+        System.out.println(findSum(n));
     }
 }

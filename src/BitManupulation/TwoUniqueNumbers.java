@@ -22,7 +22,6 @@ public class TwoUniqueNumbers {
                 break;
             }
         }
-
         int uniqueNumber1=0;
         int uniqueNumber2=0;
         for(int each:arr){
