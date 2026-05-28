@@ -1,40 +1,35 @@
 import java.util.Arrays;
+import java.util.Stack;
 
 public class Practice {
-   public static int[] sortColor(int [] arr){
-       int l=0;
-       int r=arr.length-1;
-       int index=0;
+   public static boolean balenced(String s){
+       Stack<Character> stack=new Stack<>();
 
-       while(index<=r){
+       for(int i=0;i<s.length();i++){
+           char ch=s.charAt(i);
 
-           int val=arr[index];
-           if(index==l && val==0){
-               index++;
-               continue;
-           }
-
-           if(val==0){
-
-               arr[index]=arr[l];
-               arr[l]=0;
-               l++;
-           } else if (val==2) {
-               arr[index]=arr[r];
-               arr[r]=2;
-               r--;
-
-           }else{
-               index++;
+           if(ch=='{' || ch=='(' || ch=='['){
+               stack.add(ch);
+           }else if(ch=='}' || ch==']' || ch==')'){
+               char peak=stack.peek();
+               if(ch=='}' && peak=='{'){
+                   stack.pop();
+               }else if(ch==')' && peak=='('){
+                   stack.pop();
+               } else if (ch==']' && peak=='[') {
+                   stack.pop();
+               }else{
+                   return false;
+               }
            }
        }
-       return arr;
+       if(stack.isEmpty()) return true;
+       else return false;
    }
 
     public static void main(String[] args) {
-        int arr[]={2,0,2,1,2,0};
-        int [] res=sortColor(arr);
-        System.out.println(Arrays.toString(res));
+        String s="{()}{";
+        System.out.println(balenced(s));
 
     }
 }
