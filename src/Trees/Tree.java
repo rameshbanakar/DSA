@@ -173,6 +173,57 @@ public class Tree {
         }
         return root;
     }
+
+    public static Node constructTree(int arr[],int low,int high){
+        if(low>high) return null;
+        if(low==high) return new Node(arr[low]);
+
+        int mid=low+(high-low)/2;
+        Node root=new Node(arr[mid]);
+        root.left=constructTree(arr,low,mid-1);
+        root.right =constructTree(arr,mid+1,high);
+        return root;
+    }
+
+    public static int sum(Node root){
+        if(root==null) return 0;
+        int leftSum=sum(root.left);
+        int rightSum=sum(root.right);
+        return leftSum+rightSum+root.value;
+    }
+
+    public static boolean halfTreeSum(Node root,int total){
+        if(root==null) return false;
+
+        int left=sum(root.left);
+        int right=sum(root.right);
+
+        if(left==total/2 || right==total/2) return true;
+        if(halfTreeSum(root.left,total)||halfTreeSum(root.right,total)) return true;
+        return false;
+    }
+
+    public static boolean isEqualPartition(Node root){
+        if(root==null) return false;
+        int total=sum(root);
+        if(total%2!=0) return false;
+
+        return halfTreeSum(root,total);
+    }
+
+    public static boolean hasPathSum(Node root,int target){
+        if(root==null) return false;
+        if(root.value==target) return true;
+        if(hasPathSum(root.left,target-root.value)) return true;
+        if(hasPathSum(root.right,target-root.value)) return true;
+        return false;
+    }
+
+    public static int height(Node root){
+        if(root==null) return -1;
+        return Math.max(height(root.left),height(root.right))+1;
+    }
+
     public static void main(String[] args) {
         Node root=insertNode(null,50);
         root=insertNode(root,60);
@@ -193,5 +244,17 @@ public class Tree {
         System.out.println(largerElement(root).value);
         deletedNode(root,70);
         preOrderTraversal(root);
+
+
+        int arr[]={10,15,20,28,32,35,42,45};
+        root=constructTree(arr,0,arr.length-1);
+        System.out.println();
+        inOrderTraversal(root);
+        System.out.println();
+        System.out.println(isEqualPartition(root));
+
+        System.out.println(hasPathSum(root,40));
+
+        System.out.println(height(root));
     }
 }
