@@ -136,6 +136,14 @@ public class Tree {
         return temp.value;
     }
 
+    public static int largerElement(Node root){
+        Node temp=root;
+        while(temp.right!=null){
+            temp=temp.right;
+        }
+        return temp.value;
+    }
+
     public static void main(String[] args) {
         Node root=insertNode(null,50);
         root=insertNode(root,60);
@@ -153,5 +161,6 @@ public class Tree {
         rightSideView(root);
         System.out.println(search(root,100));
         System.out.println(SmallerElement(root));
+        System.out.println(largerElement(root));
     }
 }
