@@ -136,14 +136,43 @@ public class Tree {
         return temp.value;
     }
 
-    public static int largerElement(Node root){
+    public static Node largerElement(Node root){
         Node temp=root;
         while(temp.right!=null){
             temp=temp.right;
         }
-        return temp.value;
+        return temp;
     }
 
+    public static Node deletedNode(Node root,int delete){
+        if(root==null) return null;
+
+        if(search(root,delete)==false) return null;
+
+        if(root.value!=delete){
+            if(root.value>delete){
+                root.left=deletedNode(root.left,delete);
+            }else{
+                root.right=deletedNode(root.right,delete);
+            }
+        }else{
+            if(root.left==null && root.right==null){
+                return null;
+            }else if(root.left==null && root.right!=null){
+                return root.right;
+            } else if (root.left!=null && root.right==null) {
+                return root.left;
+            }else{
+                Node maxvalue=largerElement(root.left);
+                int rootValue=root.value;
+                root.value=maxvalue.value;
+                maxvalue.value=rootValue;
+                root.left=deletedNode(root.left,delete);
+                return root;
+            }
+        }
+        return root;
+    }
     public static void main(String[] args) {
         Node root=insertNode(null,50);
         root=insertNode(root,60);
@@ -161,6 +190,8 @@ public class Tree {
         rightSideView(root);
         System.out.println(search(root,100));
         System.out.println(SmallerElement(root));
-        System.out.println(largerElement(root));
+        System.out.println(largerElement(root).value);
+        deletedNode(root,70);
+        preOrderTraversal(root);
     }
 }
