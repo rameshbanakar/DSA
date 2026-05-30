@@ -1,5 +1,8 @@
 package Trees;
 
+import java.util.LinkedList;
+import java.util.Queue;
+
 class Node{
     int value;
     Node left;
@@ -45,6 +48,26 @@ public class Tree {
         System.out.print(root.value+"-->");
 
     }
+    public static void levelOrdertraversal(Node root){
+        if(root==null) return;
+
+        Queue<Node> queue=new LinkedList<>();
+        queue.add(root);
+        while(!queue.isEmpty()){
+            Node node=queue.poll();
+            Node leftNode=node.left;
+            Node rightNode=node.right;
+            System.out.print(node.value+"-->");
+            if(leftNode!=null){
+                queue.add(leftNode);
+            }
+            if(rightNode!=null){
+                queue.add(rightNode);
+            }
+
+        }
+        System.out.println();
+    }
 
     public static void main(String[] args) {
         Node root=new Node(50);
@@ -53,5 +76,7 @@ public class Tree {
 //        inOrderTraversal(root);
 //        preOrderTraversal(root);
         postOrderTraversal(root);
+        System.out.println();
+        levelOrdertraversal(root);
     }
 }
