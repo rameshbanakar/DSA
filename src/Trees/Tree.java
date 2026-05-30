@@ -127,6 +127,15 @@ public class Tree {
             return search(root.right,target);
         }
     }
+
+    public static int SmallerElement(Node root){
+        Node temp=root;
+        while(temp.left!=null){
+            temp=temp.left;
+        }
+        return temp.value;
+    }
+
     public static void main(String[] args) {
         Node root=insertNode(null,50);
         root=insertNode(root,60);
@@ -143,5 +152,6 @@ public class Tree {
         leftSideView(root);
         rightSideView(root);
         System.out.println(search(root,100));
+        System.out.println(SmallerElement(root));
     }
 }
