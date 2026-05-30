@@ -89,6 +89,26 @@ public class Tree {
 
     }
 
+    public static void rightSideView(Node root){
+        if(root==null) return;
+
+        Queue<Node> queue=new LinkedList<>();
+        queue.add(root);
+
+        while(!queue.isEmpty()){
+            int size=queue.size();
+
+            for(int i=0;i<size;i++){
+                Node node=queue.remove();
+                if(node.left!=null) queue.add(node.left);
+                if(node.right!=null) queue.add(node.right);
+                if(i==size-1) System.out.print(node.value+"-->");
+            }
+            System.out.println();
+        }
+
+    }
+
     public static void main(String[] args) {
         Node root=new Node(50);
         root.left=new Node(40);
@@ -99,5 +119,6 @@ public class Tree {
         System.out.println();
         levelOrdertraversal(root);
         leftSideView(root);
+        rightSideView(root);
     }
 }
