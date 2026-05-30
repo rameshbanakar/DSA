@@ -14,12 +14,18 @@ class Node{
         this.left=null;
     }
 }
+
 public class Tree {
-    public static Node addNode(Node root,int value){
+
+    public static Node insertNode(Node root,int value){
         if(root==null){
             return new Node(value);
         }
-
+        if(root.value>value){
+            root.left=insertNode(root.left,value);
+        }else{
+            root.right=insertNode(root.right,value);
+        }
         return root;
     }
 
@@ -48,6 +54,7 @@ public class Tree {
         System.out.print(root.value+"-->");
 
     }
+
     public static void levelOrdertraversal(Node root){
         if(root==null) return;
 
@@ -109,16 +116,32 @@ public class Tree {
 
     }
 
+    public static boolean search(Node root,int target){
+        if(root==null) return false;
+
+        if(root.value==target) return true;
+
+        if(root.value>target){
+            return search(root.left,target);
+        }else{
+            return search(root.right,target);
+        }
+    }
     public static void main(String[] args) {
-        Node root=new Node(50);
-        root.left=new Node(40);
-        root.right=new Node(60);
-//        inOrderTraversal(root);
+        Node root=insertNode(null,50);
+        root=insertNode(root,60);
+        root=insertNode(root,30);
+        root=insertNode(root,20);
+        root=insertNode(root,70);
+        root=insertNode(root,80);
+
+       inOrderTraversal(root);
 //        preOrderTraversal(root);
         postOrderTraversal(root);
         System.out.println();
         levelOrdertraversal(root);
         leftSideView(root);
         rightSideView(root);
+        System.out.println(search(root,100));
     }
 }
