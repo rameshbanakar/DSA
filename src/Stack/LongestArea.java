@@ -4,6 +4,7 @@ import java.util.Arrays;
 import java.util.Stack;
 
 public class LongestArea {
+
     public static int [] nearestSmallLeft(int[] arr){
         int [] result=new int[arr.length];
         Stack<Integer> small=new Stack<>();
@@ -22,6 +23,7 @@ public class LongestArea {
         }
         return result;
     }
+
     public static int[] nearestSmallRight(int arr[]){
         int n=arr.length;
         int [] result=new int[n];
@@ -42,6 +44,7 @@ public class LongestArea {
         return result;
 
     }
+
     public static int largestArea(int []arr,int smallleft[],int smallRight[]){
         int ans=0;
         for(int i=0;i<arr.length;i++){
