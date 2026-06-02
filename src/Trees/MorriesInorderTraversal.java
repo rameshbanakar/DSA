@@ -10,7 +10,7 @@ public class MorriesInorderTraversal {
 
         while (curr != null) {
             if (curr.left == null) {
-                System.out.println(curr.value + "-->");
+                System.out.print(curr.value + "-->");
                 curr = curr.right;
 
             } else {
@@ -25,13 +25,11 @@ public class MorriesInorderTraversal {
                 }
                 if (temp.right == curr) {
                     temp.right = null;
-                    System.out.println(curr.value + "-->");
+                    System.out.print(curr.value + "-->");
                     curr = curr.right;
                 }
             }
         }
-
-
     }
 
     public static void main(String[] args) {
