@@ -1,4 +1,4 @@
-package Greedy;
+package Heap;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -24,7 +24,6 @@ public class KthLargestElement {
         int k = 3;
         int ans = findSmallElement(arr, k);
         System.out.println(ans);
-
 
     }
 }
