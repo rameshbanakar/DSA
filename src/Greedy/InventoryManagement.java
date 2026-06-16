@@ -36,17 +36,13 @@ public class InventoryManagement {
                     pq.add(c[i][1]);
                 }
             }
-
         }
 
         int ans = 0;
-
         while (!pq.isEmpty()) {
             ans += pq.remove();
         }
         return ans;
-
-
     }
 
     public static void main(String[] args) {
