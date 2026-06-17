@@ -1,6 +1,7 @@
 package knapsack;
 
 public class targetSumInSubsets {
+
     public static boolean targetSum(int[] arr, int index, int target) {
         if (target == 0) return true;
 
@@ -14,6 +15,12 @@ public class targetSumInSubsets {
         return pick || unpick;
     }
 
+    //    top down approch
+    public static int targetSumTopdown(int[] arr, int index, int target) {
+        return 1;
+    }
+
+    //
     public static void main(String[] args) {
         int a[] = {3, 34, 4, 12, 5, 2};
         int target = 9;
