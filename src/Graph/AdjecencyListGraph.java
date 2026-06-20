@@ -13,9 +13,7 @@ class pair {
 }
 
 public class AdjecencyListGraph {
-    public static void main(String[] args) {
-        int edges[][] = {{0, 1, 10}, {0, 2, 20}, {1, 2, 30}, {2, 3, 40}, {3, 1, 50}};
-        int n = edges.length;
+    public static ArrayList<pair>[] graphCreation(int n, int edges[][]) {
         ArrayList<pair>[] graph = new ArrayList[n];
         for (int i = 0; i < n; i++) {
             graph[i] = new ArrayList<>();
@@ -26,7 +24,12 @@ public class AdjecencyListGraph {
             int weight = edges[i][2];
             graph[row].add(new pair(col, weight));
         }
-
+        return graph;
+    }
+    public static void main(String[] args) {
+        int edges[][] = {{0, 1, 10}, {0, 2, 20}, {1, 2, 30}, {2, 3, 40}, {3, 1, 50}};
+        int node = edges.length;
+        ArrayList<pair>[] graph = graphCreation(node, edges);
         for (int i = 0; i < 4; i++) {
             System.out.println(graph[i]);
         }
