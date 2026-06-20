@@ -1,0 +1,60 @@
+Graph-> collection of nodes and edges
+
+real world examples are:
+  ->google maps
+  ->social meadia
+  ->
+
+
+A graph is a general data structure made of:
+
+Vertices (nodes)
+
+Edges (connections between nodes)
+
+Graphs can be:
+
+Directed or Undirected
+
+Weighted or Unweighted
+
+Can contain cycles (loops)
+
+Can be connected or disconnected
+
+
+types of graphs:
+
+1)directed graph
+2) undirected graph
+
+1)weighted graph
+2)unweighted graph
+
+1)conneted graph
+2)disconnected graph
+
+1)cyclic graph
+2)Acyclic graph
+
+1)degree of the graph
+
+
+1)simple graph--> no self loop and no multiple edges b/w the nodes
+
+
+how we store the graph
+
+there are two ways to store a graph
+1)Adjecency matrix
+2)Adjecency list
+
+
+------------------------------------------------------------------------------------------------------------------------
+Trees
+A tree is a special type of graph with extra rules:
+Connected → there’s always a path between any two nodes.
+Acyclic → no cycles allowed.
+If there are n nodes, there are always n-1 edges.
+Usually has a root node (though in graph theory, a tree doesn’t require a root, but in data structures we define one).
+So, every tree is a graph, but not every graph is a tree.
