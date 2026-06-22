@@ -9,9 +9,7 @@ public class depthFirstSearch {
     public static void dfs(int index, ArrayList<pair>[] graph, boolean visited[]) {
         visited[index] = true;
         System.out.println(index);
-
         ArrayList<pair> list = graph[index];
-
         for (pair each : list) {
             if (visited[each.val] == false) {
                 dfs(each.val, graph, visited);
@@ -29,7 +27,6 @@ public class depthFirstSearch {
             if (visisted[i] == false) {
                 dfs(i, graph, visisted);
             }
-
         }
     }
 
@@ -38,7 +35,5 @@ public class depthFirstSearch {
         int n = edges.length;
         ArrayList<pair>[] graph = graphCreation(n, edges);
         traversegraph(graph);
-
-
     }
 }
