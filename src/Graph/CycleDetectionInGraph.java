@@ -34,7 +34,7 @@ public class CycleDetectionInGraph {
     }
 
     public static void main(String[] args) {
-        int edges[][] = {{0, 1}, {1, 2}, {2, 3}, {3, 4}, {4, 5}};
+        int edges[][] = {{0, 1}, {1, 2}, {2, 3}, {3, 4}, {4, 1}};
         int numberOfNodes = 6;
         ArrayList<Integer>[] graph = new ArrayList[numberOfNodes];
 

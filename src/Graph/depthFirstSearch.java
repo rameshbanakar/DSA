@@ -1,7 +1,6 @@
 package Graph;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 
 import static Graph.AdjecencyListGraph.graphCreation;
 
@@ -21,7 +20,6 @@ public class depthFirstSearch {
 
         int n = graph.length;
         boolean visisted[] = new boolean[n];
-        System.out.println(Arrays.toString(visisted));
 
         for (int i = 0; i < n; i++) {
             if (visisted[i] == false) {
