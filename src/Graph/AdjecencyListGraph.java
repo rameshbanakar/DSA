@@ -23,6 +23,7 @@ public class AdjecencyListGraph {
             int col = edges[i][1];
             int weight = edges[i][2];
             graph[row].add(new pair(col, weight));
+            graph[col].add(new pair(row, weight));
         }
         return graph;
     }

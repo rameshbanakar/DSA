@@ -29,8 +29,8 @@ public class bfsTraversal {
 
     }
 
-    public static void traversegraph(ArrayList<pair>[] graph) {
-        int n = 5;
+    public static void traversegraph(int nodes, ArrayList<pair>[] graph) {
+        int n = nodes;
         boolean visited[] = new boolean[n];
 
         for (int i = 0; i < n; i++) {
@@ -45,6 +45,6 @@ public class bfsTraversal {
         int edges[][] = {{0, 1, 10}, {0, 2, 20}, {0, 4, 30}, {2, 3, 40}, {2, 4, 50}};
         int n = 5;
         ArrayList<pair>[] graph = graphCreation(n, edges);
-        traversegraph(graph);
+        traversegraph(n, graph);
     }
 }
