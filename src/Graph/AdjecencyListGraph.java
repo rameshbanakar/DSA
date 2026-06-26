@@ -18,7 +18,7 @@ public class AdjecencyListGraph {
         for (int i = 0; i < n; i++) {
             graph[i] = new ArrayList<>();
         }
-        for (int i = 0; i < n; i++) {
+        for (int i = 0; i < edges.length; i++) {
             int row = edges[i][0];
             int col = edges[i][1];
             int weight = edges[i][2];
